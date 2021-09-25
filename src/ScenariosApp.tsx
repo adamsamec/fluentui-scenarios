@@ -1,7 +1,21 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FluentProvider, teamsLightTheme, Button, Menu, MenuTrigger, MenuList, MenuPopover, MenuGroup, MenuGroupHeader, MenuItem, MenuItemCheckbox } from '@fluentui/react-components';
 
-export const StatusSubmenu: React.FunctionComponent = () => {
+const Home = () => {
+return (
+<nav>
+  <ul>
+    <li>
+
+    <Link to="/profile-menu">Profile menu</Link>
+    </li>
+  </ul>
+</nav>
+);
+}
+
+const StatusSubmenu: React.FunctionComponent = () => {
 return (
 <Menu>
   <MenuTrigger>
@@ -19,9 +33,8 @@ return (
 );
 }
 
-export const ScenariosApp: React.FunctionComponent = () => {
-  return (
-    <FluentProvider theme={teamsLightTheme}>
+const ProfileMenu = () => {
+return (
   <Menu>
     <MenuTrigger>
       <Button>Profile</Button>
@@ -46,6 +59,16 @@ export const ScenariosApp: React.FunctionComponent = () => {
       </MenuList>
     </MenuPopover>
   </Menu>
+);  
+}
+
+export const ScenariosApp: React.FunctionComponent = () => {
+  return (
+    <FluentProvider theme={teamsLightTheme}>
+      <Router>
+      <Route path="/" exact component={Home} />
+      <Route path="/profile-menu" exact component={ProfileMenu} />
+      </Router>
 </FluentProvider>
   );
 }
