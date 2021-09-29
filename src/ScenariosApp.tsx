@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { FluentProvider, teamsLightTheme, Button, Menu, MenuTrigger, MenuList, MenuPopover, MenuGroup, MenuGroupHeader, MenuItem, MenuItemCheckbox } from '@fluentui/react-components';
+import { FluentProvider, teamsLightTheme, Button, Menu, MenuTrigger, MenuList, MenuPopover, MenuGroup, MenuGroupHeader, MenuItem, MenuItemCheckbox, MenuItemRadio } from '@fluentui/react-components';
 
 const Home = () => {
 return (
@@ -24,9 +24,9 @@ return (
 
   <MenuPopover>
     <MenuList>
-      <MenuItem>Online</MenuItem>
-      <MenuItem>Away</MenuItem>
-      <MenuItem>Offline</MenuItem>
+      <MenuItemRadio name="status" value="online" defaultChecked={true}>Online</MenuItemRadio>
+      <MenuItemRadio name="status" value="away">Away</MenuItemRadio>
+      <MenuItemRadio name="status" value="offline" disabled={true}>Offline</MenuItemRadio>
     </MenuList>
   </MenuPopover>
   </Menu>
