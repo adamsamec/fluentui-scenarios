@@ -3,7 +3,13 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { FluentProvider, teamsLightTheme, Button, Menu, MenuTrigger, MenuList, MenuPopover, MenuGroup, MenuGroupHeader, MenuItem, MenuItemCheckbox, MenuItemRadio } from '@fluentui/react-components';
 
 const Home = () => {
+  React.useEffect(() => {
+    document.title = 'Fluent UI usage scenarios';
+     }, []);
+   
 return (
+  <>
+  <h1>Fluent UI usage scenarios</h1>
 <nav>
   <ul>
     <li>
@@ -12,6 +18,7 @@ return (
     </li>
   </ul>
 </nav>
+</>
 );
 }
 
@@ -26,7 +33,7 @@ return (
     <MenuList>
       <MenuItemRadio name="status" value="online" defaultChecked={true}>Online</MenuItemRadio>
       <MenuItemRadio name="status" value="away">Away</MenuItemRadio>
-      <MenuItemRadio name="status" value="offline" disabled={true}>Offline</MenuItemRadio>
+      <MenuItemRadio name="status" value="offline" disabled>Offline</MenuItemRadio>
     </MenuList>
   </MenuPopover>
   </Menu>
@@ -34,9 +41,15 @@ return (
 }
 
 const ProfileMenu = () => {
+  React.useEffect(() => {
+ document.title = 'Profile Menu | Fluent UI usage scenarios';
+  }, []);
+  
 return (
+  <>
+  <Link to="/">Go back to main menu</Link>
   <Menu>
-    <MenuTrigger>
+    <MenuTrigger >
       <Button>Profile</Button>
     </MenuTrigger>
 
@@ -59,6 +72,7 @@ return (
       </MenuList>
     </MenuPopover>
   </Menu>
+  </>
 );  
 }
 
