@@ -4,6 +4,7 @@ import { FluentProvider, teamsLightTheme } from '@fluentui/react-components';
 import { HomePage } from './HomePage';
 import { ProfileMenuPage } from './ProfileMenuPage';
 import { AccordionFormPage } from './AccordionFormPage';
+import { AddPeoplePopoverPage } from './AddPeoplePopoverPage';
 
 export const appTitle = 'Fluent UI usage scenarios';
 export const appTitleSeparator = ' | ';
@@ -19,8 +20,9 @@ export const ScenariosApp: React.FunctionComponent = () => {
     <FluentProvider theme={teamsLightTheme}>
       <Router>
       <Route path="/" exact component={HomePage} />
-      <Route path="/profile-menu" exact component={ProfileMenuPage} />
+      <Route path="/menu" exact component={ProfileMenuPage} />
       <Route path="/accordion" exact component={AccordionFormPage} />
+      <Route path="/popover" exact component={AddPeoplePopoverPage} />
       </Router>
 </FluentProvider>
   );

@@ -13,10 +13,13 @@ return (
 <nav>
   <ul>
     <li>
-    <Link to="/profile-menu">Profile menu</Link>
+    <Link to="/menu">Menu</Link>
     </li>
     <li>
     <Link to="/accordion">Accordion</Link>
+    </li>
+    <li>
+    <Link to="/popover">Popover</Link>
     </li>
   </ul>
 </nav>

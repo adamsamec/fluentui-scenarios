@@ -51,7 +51,7 @@ const StatusSubmenu: React.FunctionComponent = () => {
 
 export const ProfileMenuPage = () => {
     React.useEffect(() => {
-   document.title = 'Profile Menu' + appTitleSeparator + appTitle;
+   document.title = 'Menu' + appTitleSeparator + appTitle;
     }, []);
   
   return (
