@@ -2,16 +2,23 @@ import React from 'react';
 import { Button, Menu, MenuTrigger, MenuList, MenuPopover, MenuGroup, MenuGroupHeader, MenuItem, MenuItemCheckbox, MenuItemRadio } from '@fluentui/react-components';
 import { appTitle, appTitleSeparator, GoBackLink } from './ScenariosApp';
 
-const StatusSubmenu: React.FunctionComponent = () => {
+interface IStatusSubmenuProps {
+  checkedValues: Record<string, string[]>;
+  onChange: OnCheckedValueChangeCallback;
+}
+
+const StatusSubmenu: React.FunctionComponent<IStatusSubmenuProps> = (props: IStatusSubmenuProps) => {
+  const {checkedValues, onChange} = props;
+
   return (
-  <Menu>
+  <Menu checkedValues={checkedValues} onCheckedValueChange={onChange}>
     <MenuTrigger>
       <MenuItem>Status</MenuItem>
       </MenuTrigger>
   
     <MenuPopover>
       <MenuList>
-        <MenuItemRadio name="status" value="online" defaultChecked={true}>Online</MenuItemRadio>
+        <MenuItemRadio name="status" value="online">Online</MenuItemRadio>
         <MenuItemRadio name="status" value="away">Away</MenuItemRadio>
         <MenuItemRadio name="status" value="offline" disabled>Offline</MenuItemRadio>
       </MenuList>
@@ -19,8 +26,20 @@ const StatusSubmenu: React.FunctionComponent = () => {
     </Menu>
   );
 };
-  
+
+type OnCheckedValueChangeDataType = {
+  name: string,
+  checkedItems: string[],
+};
+
+type OnCheckedValueChangeCallback = (event: React.MouseEvent | React.KeyboardEvent, data: OnCheckedValueChangeDataType) => void;
+
 const ProfileMenu: React.FunctionComponent = () => {
+  const [checkedValues, setCheckedValues] = React.useState({status: ['online']});
+  const onChange = (event: React.MouseEvent | React.KeyboardEvent, {name, checkedItems}: OnCheckedValueChangeDataType) => {
+  setCheckedValues((state) => ({...state, [name]: checkedItems}));
+  };
+
   return (
     <Menu>
       <MenuTrigger >
@@ -40,7 +59,7 @@ const ProfileMenu: React.FunctionComponent = () => {
           </MenuGroup>
           <MenuGroup>
             <MenuGroupHeader>Account</MenuGroupHeader>
-            <StatusSubmenu />
+            <StatusSubmenu checkedValues={checkedValues} onChange={onChange} />
             <MenuItem>Logout</MenuItem>
           </MenuGroup>
         </MenuList>
