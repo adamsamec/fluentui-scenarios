@@ -35,9 +35,9 @@ type OnCheckedValueChangeDataType = {
 type OnCheckedValueChangeCallback = (event: React.MouseEvent | React.KeyboardEvent, data: OnCheckedValueChangeDataType) => void;
 
 const ProfileMenu: React.FunctionComponent = () => {
-  const [checkedValues, setCheckedValues] = React.useState({status: ['online']});
-  const onChange = (event: React.MouseEvent | React.KeyboardEvent, {name, checkedItems}: OnCheckedValueChangeDataType) => {
-  setCheckedValues((state) => ({...state, [name]: checkedItems}));
+  const [statusCheckedValues, setStatusCheckedValues] = React.useState({status: ['online']});
+  const onStatusChange = (event: React.MouseEvent | React.KeyboardEvent, {name, checkedItems}: OnCheckedValueChangeDataType) => {
+  setStatusCheckedValues((state) => ({...state, [name]: checkedItems}));
   };
 
   return (
@@ -59,7 +59,7 @@ const ProfileMenu: React.FunctionComponent = () => {
           </MenuGroup>
           <MenuGroup>
             <MenuGroupHeader>Account</MenuGroupHeader>
-            <StatusSubmenu checkedValues={checkedValues} onChange={onChange} />
+            <StatusSubmenu checkedValues={statusCheckedValues} onChange={onStatusChange} />
             <MenuItem>Logout</MenuItem>
           </MenuGroup>
         </MenuList>
