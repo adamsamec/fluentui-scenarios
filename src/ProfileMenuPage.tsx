@@ -18,9 +18,9 @@ const StatusSubmenu: React.FunctionComponent = () => {
     </MenuPopover>
     </Menu>
   );
-  };
+};
   
-  const ProfileMenu = () => {
+const ProfileMenu: React.FunctionComponent = () => {
   return (
     <Menu>
       <MenuTrigger >
@@ -49,7 +49,7 @@ const StatusSubmenu: React.FunctionComponent = () => {
   );
 };
 
-export const ProfileMenuPage = () => {
+export const ProfileMenuPage: React.FunctionComponent = () => {
     React.useEffect(() => {
    document.title = 'Menu' + appTitleSeparator + appTitle;
     }, []);

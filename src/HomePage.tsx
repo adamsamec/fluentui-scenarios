@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { appTitle } from './ScenariosApp';
 
-export const HomePage = () => {
+export const HomePage: React.FunctionComponent = () => {
   React.useEffect(() => {
     document.title = appTitle;
      }, []);

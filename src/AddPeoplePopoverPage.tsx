@@ -42,7 +42,7 @@ const {setPopoverOpened} = props;
   );
 };
 
-export const AddPeoplePopoverPage = () => {
+export const AddPeoplePopoverPage: React.FunctionComponent = () => {
     React.useEffect(() => {
    document.title = 'Popover' + appTitleSeparator + appTitle;
     }, []);

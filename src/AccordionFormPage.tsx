@@ -2,7 +2,7 @@ import React from 'react';
 import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from '@fluentui/react-components';
 import { appTitle, appTitleSeparator, GoBackLink } from './ScenariosApp';
 
-const AccordionForm = () => {
+const AccordionForm: React.FunctionComponent = () => {
   return (
   <Accordion defaultOpenItems={'personalDetails'}>
   <AccordionItem value="personalDetails">
@@ -39,7 +39,7 @@ const AccordionForm = () => {
   );
 };
 
-export const AccordionFormPage = () => {
+export const AccordionFormPage: React.FunctionComponent = () => {
     React.useEffect(() => {
    document.title = 'Accordion' + appTitleSeparator + appTitle;
     }, []);
