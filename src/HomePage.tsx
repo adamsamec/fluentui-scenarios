@@ -21,6 +21,9 @@ return (
     <li>
     <Link to="/popover">Popover</Link>
     </li>
+    <li>
+    <Link to="/button">Button</Link>
+    </li>
   </ul>
 </nav>
 </>

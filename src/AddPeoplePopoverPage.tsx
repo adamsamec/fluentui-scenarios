@@ -20,7 +20,7 @@ const {setPopoverOpened} = props;
   );
 }
   
-  const AddPeoplePopover = () => {
+  const AddPeoplePopover: React.FunctionComponent = () => {
     const [popoverOpened, setPopoverOpened] = React.useState(false);
 
   return (
